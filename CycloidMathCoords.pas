@@ -37,9 +37,9 @@ begin
   var (xc0, yc0, phi0) := (xc, yc, phi);
   var dphi := 0.04 * 5 / r ; // Больше колесо - меньше шаг
   var l := new List<Point>;
-  Wheel(xc0, yc0, r, phi0);
   BeginFrameBasedAnimation(()->
   begin
+    Wheel(xc0, yc0, r, phi0);
     var x := p * r * cos(phi) + xc;
     var y := p * r * sin(phi) + yc;
     l.Add(Pnt(x, y));

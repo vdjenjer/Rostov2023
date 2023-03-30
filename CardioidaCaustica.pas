@@ -36,15 +36,15 @@ begin
 end;
 
 begin
-  Cardioid(10);
-  {
+//  Cardioid(10);
+//  {
   BeginFrameBasedAnimation((i: integer)->
   begin
     Cardioid(i);
     i += 1;
-    Sleep(1000);
+//    Sleep(1000);
     if i > 100 then
       EndFrameBasedAnimation;
   end);
-  }
+//  }
 end.
