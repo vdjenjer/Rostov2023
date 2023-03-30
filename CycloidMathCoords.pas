@@ -9,6 +9,7 @@ var
   PanelSize := 150;
   // Радиус колеса
   r := 5;
+
 procedure Wheel(x, y, r, phi: real; dr: real := 0.3; c: color := colors.Gold; dc: color := colors.Red);
 begin
   pen.Width := 0.5;
@@ -36,9 +37,9 @@ begin
   var (xc0, yc0, phi0) := (xc, yc, phi);
   var dphi := 0.04 * 5 / r ; // Больше колесо - меньше шаг
   var l := new List<Point>;
+  Wheel(xc0, yc0, r, phi0);
   BeginFrameBasedAnimation(()->
   begin
-    Wheel(xc0, yc0, r, phi0);
     var x := p * r * cos(phi) + xc;
     var y := p * r * sin(phi) + yc;
     l.Add(Pnt(x, y));
@@ -60,7 +61,7 @@ begin
   tb.Wrapping := True;
   var s := SliderReal('Сдвиг:', 0.1, 2.0, p, 0.1);
   s.ValueChanged := procedure -> p := s.Value;
-  var rinp := new IntegerBoxWPF('Радиус колеса: ',1, 10);
+  var rinp := new IntegerBoxWPF('Радиус колеса: ', 1, 10);
   rinp.Value := 5;
   rinp.Tooltip := 'Можно менять колёсиком';
   rinp.ValueChanged := procedure -> r := rinp.Value;
